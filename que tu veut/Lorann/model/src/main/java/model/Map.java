@@ -116,7 +116,7 @@ public abstract class Map extends JComponent {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#getPreferredSize()
 	 */
 	@Override
@@ -167,7 +167,7 @@ public abstract class Map extends JComponent {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
