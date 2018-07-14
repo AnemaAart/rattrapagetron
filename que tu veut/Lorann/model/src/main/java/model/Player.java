@@ -58,7 +58,7 @@ public abstract class Player extends GamePhysics {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see view.GamePhysics#accelerate()
 	 */
 	@Override
@@ -97,7 +97,7 @@ public abstract class Player extends GamePhysics {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see view.GamePhysics#draw(java.awt.Graphics)
 	 */
 	@Override
@@ -111,7 +111,7 @@ public abstract class Player extends GamePhysics {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see view.GamePhysics#getAlive()
 	 */
 	@Override
@@ -121,7 +121,7 @@ public abstract class Player extends GamePhysics {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see view.GamePhysics#getPath()
 	 */
 	@Override
@@ -131,7 +131,7 @@ public abstract class Player extends GamePhysics {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see view.GamePhysics#move()
 	 */
 	@Override

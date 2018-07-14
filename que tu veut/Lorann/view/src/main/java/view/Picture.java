@@ -9,9 +9,23 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Picture.
+ */
 public class Picture {
+	
+	/** The cache. */
 	private static Map<String, BufferedImage> cache = new HashMap<String, BufferedImage>();
 
+	/**
+	 * Draw.
+	 *
+	 * @param g the g
+	 * @param filepath the filepath
+	 * @param x the x
+	 * @param y the y
+	 */
 	public static void draw(final Graphics g, final String filepath, final int x, final int y) {
 		try {
 			BufferedImage img;

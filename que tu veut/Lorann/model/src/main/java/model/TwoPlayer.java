@@ -14,6 +14,9 @@ public class TwoPlayer extends Map {
 	/** The player 2. */
 	private PlayerPh player2;
 
+	/** The direction 2. */
+	int direction2 = 2;
+
 	/** The k 1. */
 	final Player k1 = null;
 
@@ -43,19 +46,36 @@ public class TwoPlayer extends Map {
 			@Override
 			public void keyPressed(final KeyEvent e) {
 				if (!TwoPlayer.this.player2.getAlive()) {
+				} else if (e.getKeyCode() == KeyEvent.VK_Q) {
+					TwoPlayer.this.direction2 = TwoPlayer.this.direction2 - 1;
+				} else if (e.getKeyCode() == KeyEvent.VK_D) {
+					TwoPlayer.this.direction2 = TwoPlayer.this.direction2 + 1;
 				}
-				switch (e.getKeyCode()) {
-				case KeyEvent.VK_Q:
-					TwoPlayer.this.player2.setXVelocity(-TwoPlayer.this.VELOCITY);
-					TwoPlayer.this.player2.setYVelocity(0);
+				if (TwoPlayer.this.direction2 > 4) {
+					TwoPlayer.this.direction2 = 1;
+				}
+				if (TwoPlayer.this.direction2 < 1) {
+					TwoPlayer.this.direction2 = 4;
+				}
+				switch (TwoPlayer.this.direction2) {
+				case 1:
+					TwoPlayer.this.player2.setXVelocity(0);
+					TwoPlayer.this.player2.setYVelocity(-TwoPlayer.this.VELOCITY);
 					break;
-
-				case KeyEvent.VK_D:
+				case 2:
 					TwoPlayer.this.player2.setXVelocity(TwoPlayer.this.VELOCITY);
 					TwoPlayer.this.player2.setYVelocity(0);
 					break;
+				case 3:
+					TwoPlayer.this.player2.setXVelocity(0);
+					TwoPlayer.this.player2.setYVelocity(TwoPlayer.this.VELOCITY);
+					break;
+				case 4:
+					TwoPlayer.this.player2.setXVelocity(-TwoPlayer.this.VELOCITY);
+					TwoPlayer.this.player2.setYVelocity(0);
+					break;
 				}
-
+				;
 			}
 
 			@Override
@@ -83,6 +103,15 @@ public class TwoPlayer extends Map {
 
 	}
 
+	/**
+	 * Checks if is p1.
+	 *
+	 * @return true, if is p1
+	 */
+	public boolean isP1() {
+		return this.p1;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 *
@@ -107,6 +136,15 @@ public class TwoPlayer extends Map {
 	 * Restart game.
 	 */
 	public void restartGame() {
+	}
+
+	/**
+	 * Sets the p1.
+	 *
+	 * @param p1 the new p1
+	 */
+	public void setP1(boolean p1) {
+		this.p1 = p1;
 	}
 
 	/*
@@ -145,8 +183,10 @@ public class TwoPlayer extends Map {
 			this.addScore();
 			if (this.player1.getAlive()) {
 				this.displayMessage("player1 wins");
+				AbstractDAO.executeQuery("addscore(1)");
 			} else if (this.player2.getAlive()) {
 				this.displayMessage("player2 wins");
+				AbstractDAO.executeQuery("Call addscore(2)");
 			} else {
 				this.displayMessage("tie");
 			}

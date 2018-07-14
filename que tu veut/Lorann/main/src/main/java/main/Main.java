@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class Main.</h1>
  *
@@ -16,8 +17,6 @@ import javax.swing.SwingUtilities;
  */
 public class Main implements Runnable {
 
-	// private static final long TIME_SLEEP = 30;
-
 	/**
 	 * The main method.
 	 *
@@ -25,22 +24,14 @@ public class Main implements Runnable {
 	 *            the arguments
 	 */
 	public static void main(final String[] args) {
-		/*
-		 * final ControllerFacade controller = new ControllerFacade(new
-		 * ViewFacade(), new ModelFacade());
-		 *
-		 * try { controller.start(); } catch (final SQLException exception) {
-		 * exception.printStackTrace(); }
-		 */
-		// while (Player.getAlive()){
-		// try {
+
 		SwingUtilities.invokeLater(new Main());
-		/*
-		 * } catch (final InterruptedException ex) {
-		 * Thread.currentThread().interrupt(); }
-		 */
+
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 

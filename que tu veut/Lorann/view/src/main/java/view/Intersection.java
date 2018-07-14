@@ -1,5 +1,13 @@
 package view;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Enum Intersection.
+ */
 public enum Intersection {
-	NONE, UP
+
+	/** The none. */
+	NONE,
+	/** The up. */
+	UP
 }

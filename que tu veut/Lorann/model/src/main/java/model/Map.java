@@ -56,6 +56,9 @@ public abstract class Map extends JComponent {
 	/** The interval. */
 	int interval = 20;
 
+	/** The direction. */
+	int direction = 2;
+
 	/** The timer. */
 	Timer timer = null;
 
@@ -90,13 +93,35 @@ public abstract class Map extends JComponent {
 			public void keyPressed(final KeyEvent e) {
 				if (!Map.this.player1.getAlive()) {
 				} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-					Map.this.player1.setXVelocity(-Map.this.VELOCITY);
-					Map.this.player1.setYVelocity(0);
+					Map.this.direction = Map.this.direction - 1;
 				} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					Map.this.direction = Map.this.direction + 1;
+				}
+				if (Map.this.direction > 4) {
+					Map.this.direction = 1;
+				}
+				if (Map.this.direction < 1) {
+					Map.this.direction = 4;
+				}
+				switch (Map.this.direction) {
+				case 1:
+					Map.this.player1.setXVelocity(0);
+					Map.this.player1.setYVelocity(-Map.this.VELOCITY);
+					break;
+				case 2:
 					Map.this.player1.setXVelocity(Map.this.VELOCITY);
 					Map.this.player1.setYVelocity(0);
-
+					break;
+				case 3:
+					Map.this.player1.setXVelocity(0);
+					Map.this.player1.setYVelocity(Map.this.VELOCITY);
+					break;
+				case 4:
+					Map.this.player1.setXVelocity(-Map.this.VELOCITY);
+					Map.this.player1.setYVelocity(0);
+					break;
 				}
+				;
 			}
 
 			@Override
@@ -110,6 +135,11 @@ public abstract class Map extends JComponent {
 	 */
 	abstract void addScore();
 
+	/**
+	 * Display message.
+	 *
+	 * @param message the message
+	 */
 	public void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
